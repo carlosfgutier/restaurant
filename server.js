@@ -32,7 +32,8 @@ app.get("/tables", function(req, res) {
 });
 
 //API
-app.get("/api/tables", function() {
+app.get("/api/tables", function(req, res) {
+	console.log("app.get: " + res);
   return res.json(tables);
 });
 
