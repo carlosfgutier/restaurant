@@ -22,5 +22,7 @@ h4 {
 }	
 
 img {
-	padding:8px;
+	float:left;
+	padding-right: 5px;
+	padding-bottom:10px;
 }
