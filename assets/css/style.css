@@ -1,5 +1,6 @@
  body {
 	background-size:cover;
+	padding:50px
 }
 
 .container {
@@ -13,7 +14,13 @@
 h1 {
 	font-family: 'Bungee', cursive;
 }
-
+h2 {
+	font-family: 'Lora', serif;
+}
 h4 {
 	font-family: 'Lora', serif;
 }	
+
+img {
+	padding:8px;
+}
