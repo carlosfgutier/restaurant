@@ -1,4 +1,5 @@
 var tables = [];
+var waitlist = [];
 
 // Dependencies
 // =============================================================
@@ -41,12 +42,23 @@ app.get("/api/tables", function(req, res) {
   return res.json(tables);
 });
 
+//API
+app.get("/api/waitlist", function(req, res) {
+  console.log("app.get: " + res);
+  return res.json(waitlist);
+});
+
 app.post("/api/tables", function(req, res) {
   var newReservation = req.body;
 
   console.log(newReservation);
 
-  tables.push(newReservation);
-
+  // if tables array has 5 in it
+  if (tables.length <= 4) {
+    tables.push(newReservation);
+  } else {
+    waitlist.push(newReservation);
+  }
+  
   res.json(newReservation);
 });
