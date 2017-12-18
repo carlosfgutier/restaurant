@@ -1,3 +1,5 @@
+var tables = [];
+
 // Dependencies
 // =============================================================
 var express = require("express");
@@ -15,41 +17,34 @@ app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
 
-//Routes
-//HTML
-// app.get("/", function(req, res) {
-//   res.sendFile(path.join(__dirname, "../public/home.html"));
-// });
+// Routes
+// HTML
+app.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, "restaurant.html"));
+});
 
-// app.get("/survey", function(req, res) {
-//   res.sendFile(path.join(__dirname, "../public/survey.html"));
-// });
+app.get("/reservations", function(req, res) {
+  res.sendFile(path.join(__dirname, "reservations.html"));
+});
 
-// //API
-// app.get("/api/friends", function() {
-//   var chosen = req.params.friends;
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
+});
 
-//   if (chosen) {
-//     console.log(chosen);
+//API
+app.get("/api/tables", function() {
+  return res.json(tables);
+});
 
-//       for (var i = 0; i < character.length; i++) {
-//         if (chosen === friends[i].routeName) {
-//           return res.json(friends[i]);
-//         }
-//       }
+app.post("/api/tables", function(req, res) {
+  var newReservation = req.body;
 
-//       return res.json(false);
-//   }
-//   return res.json(friends);
-// });
+  console.log(newReservation);
 
-// app.post("/api/new", function(req, res) {
-//   var newFriend = req.body;
-//   newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
-//   console.log(newFriend);
+  tables.push(newReservation);
 
-//   friends.push(newFriend);
+  res.json(newReservation);
+});
 
-//   res.json(newFriend);
-// })
+
 
