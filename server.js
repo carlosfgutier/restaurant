@@ -11,6 +11,10 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+// Sets up the Express app to handle data parsing
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
@@ -46,6 +50,3 @@ app.post("/api/tables", function(req, res) {
 
   res.json(newReservation);
 });
-
-
-
